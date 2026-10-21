@@ -2,6 +2,7 @@ At present, there are four main criteria that continue to be used both in the cl
 We developed a computerized spreadsheet calculator that facilitates uniformity and accuracy in the classification of ALS based on the El Escorial (1), Airlie House (2), Awaji-Shima (3), and Gold Coast (4) Criteria.
 
 Please visit the following site for additional disclaimer information.
+
 https://sites.google.com/view/als-calculator/als-calculator
 
 
