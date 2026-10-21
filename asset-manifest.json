@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/alscalcmobileRLtest/static/css/main.8c05714a.css",
-    "main.js": "/alscalcmobileRLtest/static/js/main.7e80d671.js",
+    "main.js": "/alscalcmobileRLtest/static/js/main.e72db5b7.js",
     "static/js/239.3cfc2ab6.chunk.js": "/alscalcmobileRLtest/static/js/239.3cfc2ab6.chunk.js",
     "static/js/977.6c1ed04d.chunk.js": "/alscalcmobileRLtest/static/js/977.6c1ed04d.chunk.js",
     "static/js/455.d3a2d0cd.chunk.js": "/alscalcmobileRLtest/static/js/455.d3a2d0cd.chunk.js",
     "index.html": "/alscalcmobileRLtest/index.html",
     "main.8c05714a.css.map": "/alscalcmobileRLtest/static/css/main.8c05714a.css.map",
-    "main.7e80d671.js.map": "/alscalcmobileRLtest/static/js/main.7e80d671.js.map",
+    "main.e72db5b7.js.map": "/alscalcmobileRLtest/static/js/main.e72db5b7.js.map",
     "239.3cfc2ab6.chunk.js.map": "/alscalcmobileRLtest/static/js/239.3cfc2ab6.chunk.js.map",
     "977.6c1ed04d.chunk.js.map": "/alscalcmobileRLtest/static/js/977.6c1ed04d.chunk.js.map",
     "455.d3a2d0cd.chunk.js.map": "/alscalcmobileRLtest/static/js/455.d3a2d0cd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8c05714a.css",
-    "static/js/main.7e80d671.js"
+    "static/js/main.e72db5b7.js"
   ]
 }
