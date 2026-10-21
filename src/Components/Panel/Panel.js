@@ -25,6 +25,7 @@ const Panel = ({ findings, findings1, results, final, changed }) => {
   const [index, setIndex] = useState(0);
   let swiperInstance = null;
 
+  // eslint-disable-next-line no-unused-vars
   const handleChange = (event, value) => {
     setIndex(value);
     if (swiperInstance) swiperInstance.slideTo(value);

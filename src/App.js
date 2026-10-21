@@ -369,7 +369,16 @@ const exportRegionsToCSV = () => {
     const { diagnosis, explanation } = diagObj.current;
     const diagText = typeof diagnosis === "string" ? diagnosis : JSON.stringify(diagnosis);
     const expText = typeof explanation === "string" ? explanation : JSON.stringify(explanation);
-    return `${diagText} - ${expText}`;
+    const cleanedExpText = expText.replace(/\s+/g, " ").trim();
+    return `${diagText} - ${cleanedExpText}`;
+  };
+
+  const escapeCSV = (value) => {
+    const stringValue = String(value ?? "");
+    if (stringValue.includes(",") || stringValue.includes('"') || stringValue.includes("\n")) {
+      return `"${stringValue.replace(/"/g, '""')}"`;
+    }
+    return stringValue;
   };
 
   // 4) Extra info
@@ -378,10 +387,10 @@ const exportRegionsToCSV = () => {
     "Additional Information",
     `Most Rostral Finding is UMN,${tilt}`,
     // `Most Rostral Finding,${rostralFindingText}`,
-    `El Escorial,${getDiagText(elEDiag)}`,
-    `Airlie House,${getDiagText(airlieDiag)}`,
-    `Awaji-Shima,${getDiagText(awajiDiag)}`,
-    `Gold Coast,${getDiagText(goldDiag)}`,
+    `El Escorial,${escapeCSV(getDiagText(elEDiag))}`,
+    `Airlie House,${escapeCSV(getDiagText(airlieDiag))}`,
+    `Awaji-Shima,${escapeCSV(getDiagText(awajiDiag))}`,
+    `Gold Coast,${escapeCSV(getDiagText(goldDiag))}`,
     `Gene Present,${gene ? "Yes" : "No"}`,
     `Progressive,${progressive ? "Yes" : "No"}`,
     `Other Conditions Excluded,${excluded ? "Yes" : "No"}`
@@ -460,17 +469,17 @@ const exportRegionsToPDF = () => {
   const borderColor = [200, 200, 200];
   
   // Draw header
-  doc.setFillColor(...headerBgColor);
-  doc.setTextColor(...headerTextColor);
   doc.setFontSize(9);
   doc.setFont(undefined, 'bold');
   
   let cellX = margin;
   tableColumns.forEach((col, idx) => {
+    doc.setFillColor(...headerBgColor);
     doc.rect(cellX, currentY, columnWidths[idx], cellHeight, 'F');
     doc.setDrawColor(...borderColor);
     doc.rect(cellX, currentY, columnWidths[idx], cellHeight);
     
+    doc.setTextColor(...headerTextColor);
     const text = col.length > 15 ? col.substring(0, 12) + '...' : col;
     doc.text(text, cellX + 1, currentY + 4, { maxWidth: columnWidths[idx] - 2 });
     cellX += columnWidths[idx];
@@ -534,18 +543,21 @@ const exportRegionsToPDF = () => {
   const col2Width = pageWidth - 2 * margin - col1Width;
   const additionalCellHeight = 12;
   
-  doc.setFillColor(...headerBgColor);
-  doc.setTextColor(...headerTextColor);
   doc.setFont(undefined, 'bold');
   doc.setFontSize(9);
   
+  doc.setFillColor(...headerBgColor);
   doc.rect(margin, currentY, col1Width, additionalCellHeight, 'F');
   doc.setDrawColor(...borderColor);
   doc.rect(margin, currentY, col1Width, additionalCellHeight);
+  doc.setTextColor(...headerTextColor);
   doc.text('Label', margin + 2, currentY + 6);
   
+  doc.setFillColor(...headerBgColor);
   doc.rect(margin + col1Width, currentY, col2Width, additionalCellHeight, 'F');
+  doc.setDrawColor(...borderColor);
   doc.rect(margin + col1Width, currentY, col2Width, additionalCellHeight);
+  doc.setTextColor(...headerTextColor);
   doc.text('Value', margin + col1Width + 2, currentY + 6);
   currentY += additionalCellHeight;
   
