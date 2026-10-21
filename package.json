@@ -1,7 +1,6 @@
 {
   "name": "alscalc",
   "version": "0.1.50",
-  "private": true,
   "homepage": "https://rlipish.github.io/alscalcmobileRLtest/",
   "dependencies": {
     "@aditm1996/react-toggle-component": "^2.0.12",
