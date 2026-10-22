@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from "react";
 import "./App.css";
-import Toggle from 'react-toggle';
+import RawToggle from 'react-toggle';
 import "react-toggle/style.css";
 import Results from "./Model/Results";
 import ElEscorial from "./Model/ElEscorial";
@@ -10,8 +10,11 @@ import AwajiShima from "./Model/AwajiShima";
 import GoldCoast from "./Model/GoldCoast";
 import Panel from "./Components/Panel/Panel";
 import DiagnosisResults from "./Components/DiagnosisResults/DiagnosisResults";
-import Button from "@material-ui/core/Button";
+import RawButton from "@material-ui/core/Button";
 import jsPDF from 'jspdf';
+
+const Toggle = RawToggle.default || RawToggle;
+const Button = RawButton.default || RawButton;
 
 function App() {
   const results = useRef(new Results());
